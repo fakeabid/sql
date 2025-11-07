@@ -1,35 +1,14 @@
-You are managing a student enrollment database for a training center. The table is called students and contains these columns:
-id (number)
-name (text)
-course (text)
-fees_paid (number)
-status (text: 'Active' or 'Inactive')
-Complete the following tasks:
-Insert 3 new students into the table with the following details:
-(1, 'Alice', 'Web Development', 5000, 'Inactive')
-(2, 'Bob', 'Data Science', 7000, 'Inactive')
-(3, 'Charlie', 'UI/UX Design', 4000, 'Active')
-Use a query to view only those students whose fees_paid is greater than 5000.
-Update the status to 'Active' for students in the 'Web Development' course.
-Increase the fees_paid by 1000 for students enrolled in 'Data Science'.
-Update both status to 'Inactive' and reduce fees_paid by 500 for the student whose id is 3.
-Delete the student whose id is 2.
-Delete all students who are 'Inactive'.
-
 1)
-SELECT * FROM `students_db` WHERE fees_paid > 5000;
+SELECT DISTINCT genre FROM `store_books`;
 
 2)
-UPDATE `students_db` SET `status`='Active' WHERE course= 'Web Development';
+SELECT * FROM `store_books` WHERE stock_status = 'In Stock' AND price < 400;
 
 3)
-UPDATE `students_db` SET fees_paid= fees_paid + 1000 WHERE course= 'Data Science';
+SELECT * FROM `store_books` WHERE stock_status = 'Out of Stock' OR price > 700;
 
 4)
-UPDATE `students_db` SET fees_paid= fees_paid - 500, status = 'Inactive' WHERE id = 3;
+SELECT title, price, (price + (0.1 * price)) AS price_with_gst FROM `store_books`;
 
 5)
-DELETE FROM `students_db` WHERE id=2;
-
-6)
-DELETE FROM `students_db` WHERE status='Inactive';
+SELECT title, price, stock_status FROM `store_books` ORDER BY price DESC;

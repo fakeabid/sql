@@ -1,12 +1,14 @@
-Increase the price of the book 'Learn SQL' by 50 and update its stock to 12.
-Decrease the stock by 2 for books where the price is greater than 500.
-Delete the book that has book_id = 3.
-
 1)
-UPDATE books_stock SET price = price + 50, stock=12 WHERE title = 'Learn SQL';
+SELECT DISTINCT category FROM store_products;
 
 2)
-UPDATE books_stock SET stock= stock - 2 WHERE price > 500;
+SELECT * FROM store_products WHERE in_stock = 'Yes' AND price < 500;
 
 3)
-DELETE FROM books_stock WHERE book_id = 3;
+SELECT * FROM store_products WHERE in_stock = 'No' AND price > 1000;
+
+4)
+SELECT name, price FROM store_products ORDER BY price DESC;
+
+5)
+SELECT name, (price + (0.18 * price)) as price_with_tax FROM store_products;

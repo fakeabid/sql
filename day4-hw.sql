@@ -1,33 +1,35 @@
-You are helping manage a small online bookstore's database. The table is called books, and it stores the following details:
+You are managing a student enrollment database for a training center. The table is called students and contains these columns:
 id (number)
-title (text)
-author (text)
-price (number)
-stock (number)
-Perform the following tasks:
-Add the following five books to the table:
-(1, 'The Alchemist', 'Paulo Coelho', 350, 50)
-(2, 'Atomic Habits', 'James Clear', 450, 40)
-(3, 'The Psychology of Money', 'Morgan Housel', 400, 30)
-(4, 'Ikigai', 'Francesc Miralles', 300, 60)
-(5, 'Deep Work', 'Cal Newport', 500, 20)
-Display all books that cost less than 450 and have stock more than 30.
-Update the stock to 45 and reduce the price to 420 for the book titled ‘Deep Work’.
-Delete the book titled ‘Ikigai’.
-Show the average book price and total number of books currently in the table.
-Display the top 3 most expensive books available.'
+name (text)
+course (text)
+fees_paid (number)
+status (text: 'Active' or 'Inactive')
+Complete the following tasks:
+Insert 3 new students into the table with the following details:
+(1, 'Alice', 'Web Development', 5000, 'Inactive')
+(2, 'Bob', 'Data Science', 7000, 'Inactive')
+(3, 'Charlie', 'UI/UX Design', 4000, 'Active')
+Use a query to view only those students whose fees_paid is greater than 5000.
+Update the status to 'Active' for students in the 'Web Development' course.
+Increase the fees_paid by 1000 for students enrolled in 'Data Science'.
+Update both status to 'Inactive' and reduce fees_paid by 500 for the student whose id is 3.
+Delete the student whose id is 2.
+Delete all students who are 'Inactive'.
 
 1)
-SELECT * FROM `books_db` WHERE price < 450 AND stock > 30;
+SELECT * FROM `students_db` WHERE fees_paid > 5000;
 
 2)
-UPDATE `books_db` SET `price`=420,`stock`=45 WHERE title='Deep Work';
+UPDATE `students_db` SET `status`='Active' WHERE course= 'Web Development';
 
 3)
-DELETE FROM `books_db` WHERE title='Ikigai';
+UPDATE `students_db` SET fees_paid= fees_paid + 1000 WHERE course= 'Data Science';
 
 4)
-SELECT AVG(price), COUNT(*) FROM `books_db`;
+UPDATE `students_db` SET fees_paid= fees_paid - 500, status = 'Inactive' WHERE id = 3;
 
 5)
-SELECT * FROM `books_db` ORDER BY price DESC LIMIT 3;
+DELETE FROM `students_db` WHERE id=2;
+
+6)
+DELETE FROM `students_db` WHERE status='Inactive';

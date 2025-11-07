@@ -1,14 +1,18 @@
 1)
-SELECT DISTINCT genre FROM `store_books`;
+INSERT INTO books VALUES (1, 'The Alchemist', 'Paulo Coelho', 499, 'Fiction');
+INSERT INTO books (`title`, `author`, `price`, `genre`) VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', 599, 'Fiction');
+INSERT INTO books (`title`, `author`, `price`, `genre`) VALUES ('The Da Vinci Code', 'Dan Brown', 399, 'Fiction');
+INSERT INTO books (`title`, `author`, `price`, `genre`) VALUES ('A Brief History of Time', 'Stephen Hawking', 399, 'Science');
+INSERT INTO books (`title`, `author`, `price`, `genre`) VALUES ('Percy Jackson', 'Rick Riordan', 599, 'Science-Fiction');
 
 2)
-SELECT * FROM `store_books` WHERE stock_status = 'In Stock' AND price < 400;
+SELECT * FROM books WHERE price > 400;
 
 3)
-SELECT * FROM `store_books` WHERE stock_status = 'Out of Stock' OR price > 700;
+SELECT * FROM books WHERE genre IN ('History', 'Science', 'Fiction');
 
 4)
-SELECT title, price, (price + (0.1 * price)) AS price_with_gst FROM `store_books`;
+SELECT * FROM books WHERE title='The Great Gatsby';
 
 5)
-SELECT title, price, stock_status FROM `store_books` ORDER BY price DESC;
+SELECT * FROM books WHERE author<>'Dan Brown';

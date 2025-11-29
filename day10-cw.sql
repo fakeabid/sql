@@ -1,0 +1,2 @@
+1)
+CREATE TABLE `enrollments` (`student_id` INT(10) NOT NULL , `course_id` INT(10) NOT NULL , FOREIGN KEY (student_id) REFERENCES students(student_id), FOREIGN KEY (course_id)REFERENCES courses(course_id));
